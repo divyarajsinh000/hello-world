@@ -2,4 +2,8 @@ yo @microsoft/sharepoint
 spfx-fast-serve
 gulp trust-dev-cert
 
+<<<<<<< HEAD
 hello worlds
+=======
+hello world welcome
+>>>>>>> hello-world-images

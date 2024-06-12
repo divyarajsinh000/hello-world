@@ -1,0 +1,95 @@
+CREATE DATABASE APS
+
+CREATE TABLE Client_Master(
+	Id Int(10) AUTO_INCREMENT PRIMARY KEY,
+	First_Name VARCHAR(50) NOT NULL,
+	Last_Name  VARCHAR(50) NOT NULL,
+	Job_Title  VARCHAR(50) NALLABLE,
+	Address    VARCHAR(100)NALLABLE,
+	City       VARCHAR(50) NOT NULL,
+	Gender     VARCHAR(6)  NOT NULL,
+	Email_Id   VARCHAR(50) NOT NULL,
+	Contact_No INT(10)     NOT NULL,
+	Company Name VARCHAR(50) NALLABLE,
+	Remark       VARCHAR(50) NALLABLE,
+	Created_On   DATE TIME,
+	Created_By   DATE TIME,
+	Modified_On  DATE TIME,
+	Modified_By  DATE TIME,
+	);
+CREATE TABLE Site (
+	Id  Int(10) AUTO_INCREMENT PRIMARY KEY,
+	Project_Name VARCHAR(50) NOT NULL,
+	Name         VARCHAR(50) NOT NULL,
+	Address      VARCHAR(100) NOT NULL,
+	Locality     VARCHAR(50)  NALLABLE,
+	City         VARCHAR(50) NOT NULL,
+	Start_Date   DATE TIME  NOT NULL,
+	End_Date     DATE TIME  NOT NULL,
+	ClientId     INT(10)    NOT NULL,
+	PHOTO        BIT        NALLABLE,
+	Remark       VARCHAR(50) NALLABLE,
+	Emp_Id       INT(10)    NALLABLE,
+	Created_On   DATE TIME,
+	Created_By   DATE TIME,
+	Modified_On  DATE TIME,
+	Modified_By  DATE TIME
+	FOREIGN KEY (ClientId) REFERENCES Client Master(ClientId),
+	FOREIGN KEY (Emp_Id) REFERENCES Employee_Master(Emp_Id)
+);
+
+CREATE TABLE Category(
+
+	Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+	Name  VARCHAR(50) NOT NULL,
+	Description VARCHAR(100) NALLABLE,
+	Created_On DATE TIME,
+	Created_By VARCHAR(50),
+	Modified_On DATE TIME,
+	Modified_By VARCHAR(50),
+);
+
+CREATE TABLE Product(
+	Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+	Cat_Id  INT(10) NOT NULL,
+	Name VARCHAR(50) NALLABLE,
+	Image bit  NALLABLE,
+	Unit VARCHAR(50) NOT NULL,
+	IsActive BOOLEAN,
+	Created_On DATE TIME,
+	Created_By VARCHAR(50),
+	Modified_On DATE TIME,
+	Modified_By VARCHAR(50),
+	FOREIGN KEY (Cat_Id) REFERENCES Category(Cat_Id)
+);
+
+CREATE TABLE Employee_Master(
+	Id INT AUTO_INCREMENT PRIMARY KEY,
+	First_Name VARCHAR(50) NOT NULL,
+	Last_Name  VARCHAR(50) NOT NULL, 
+	Job_Title  VARCHAR(50) NALLABLE,
+	Address    VARCHAR(100)NALLABLE,
+	City       VARCHAR(50) NOT NULL,
+	Gender     VARCHAR(6)  NOT NULL,
+	Email_Id   VARCHAR(50) NOT NULL,
+	Contact_No INT(10)     NOT NULL,
+	Remark       VARCHAR(50) NALLABLE,
+	Created_On   DATE TIME,
+	Created_By   DATE TIME,
+	Modified_On  DATE TIME,
+	Modified_By  DATE TIME,
+);
+
+CREATE TABLE Warehouse(
+
+	Id INT AUTO_INCREMENT PRIMARY KEY,
+	Building_Name VARCHAR(50) NOT NULL,
+	Address  VARCHAR(100) NOT NULL,
+	Locality VARCHAR(50) NALLABLE,
+	City     VARCHAR(50) NOT NULL,
+	Remark       VARCHAR(50) NALLABLE,
+	Created_On   DATE TIME,
+	Created_By   DATE TIME,
+	Modified_On  DATE TIME,
+	Modified_By  DATE TIME,
+);
